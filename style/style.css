@@ -1,0 +1,78 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 16px;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	--color-text: #262523;
+    --color-bg: #efece5;
+    --color-title: #ffffff;
+    --img-maxwidth: 250px;
+    --blendmode-title: difference;
+    --filter-img: none;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: quiroh, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+	height: 300px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	isolation: isolate;
+}
+
+.content__title {
+	font-family: forma-djr-display, sans-serif;
+	font-weight: 700;
+	position: relative;
+	z-index: 10000;
+	font-size: 27vw;
+	mix-blend-mode: var(--blendmode-title);
+	-webkit-text-stroke: 2px var(--color-title);
+	text-stroke: 2px var(--color-title);
+	-webkit-text-fill-color: transparent;
+	text-fill-color: transparent;
+	color: transparent;
+	pointer-events: none;
+}
+
+.content__img {
+	max-width: var(--img-maxwidth);
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	will-change: transform;
+	filter: var(--filter-img);
+}
+
+.content__img--full {
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}
+
+@media screen and (min-width: 53em) {
+	:root {
+		font-size: 18px;
+	}
+	body {
+		overflow: hidden;
+	}
+	.content {
+		height: 100vh;
+		overflow: hidden;
+	}
+}
